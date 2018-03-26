@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Roller!</title>
+    <link rel="stylesheet" type="text/css" href="AdventureStyle.css">
+</head>
+<body>
+    <h1>Dice Roller!</h1>
+    <div id="dieContainer"></div>
+    <form>
+        <label> How many sides does your die have?
+            <input type="number" id="numOfSides">
+        </label>
+        <br>
+        <label> How many dice do you have?
+            <input type="number" id="numOfDice">
+        </label>
+    </form>
+    <button id="restart">Roll!</button>
+    <script>
+        var output = document.getElementById("number");
+        var button = document.getElementById("restart");
+        var sides = document.getElementById("numOfSides");
+        var dice = document.getElementById("numOfDice");
+        var allDice = document.getElementById("dieContainer");
+
+        var roll = function (numSides) {
+            var roll = Math.round(Math.random() * numSides);
+            if (roll == 0) {
+                roll++;
+            }
+            return roll // Save Code: Math.round((roll1 + roll2 + roll3 + roll4) - ((roll1 + roll2 + roll3 + roll4) / 4));
+        };
+
+        button.addEventListener("click", function () {
+            //output.innerHTML = roll(sides.value);
+            allDice.innerHTML = "";
+            for (var i = 0; i < dice.value; i++) {
+                console.log("hi");
+                var newDie = document.createElement("SPAN");
+                newDie.innerHTML = roll(sides.value);
+                newDie.className = " number";
+                document.getElementById("dieContainer").appendChild(newDie);
+            };
+        });
+    </script>
+</body>
+</html>
