@@ -94,7 +94,7 @@ button:hover {
     margin: 30px;
 }
 
-#GoToIndex {
+.GoToIndex {
     position: fixed;
     bottom: 10%;
     right: 0%;
@@ -104,17 +104,17 @@ button:hover {
     border: 2px solid #647058;
 }
 
-#indexLink:link {
+.indexLink:link {
     color: black;
     text-decoration: none;
 }
 
-#indexLink:hover {
+.indexLink:hover {
     color: black;
     text-decoration: none;
 }
 
-#indexLink:visited {
+.indexLink:visited {
     color: black;
     text-decoration: none;
 }
