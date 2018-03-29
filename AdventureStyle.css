@@ -93,3 +93,28 @@ button:hover {
 #dieContainer {
     margin: 30px;
 }
+
+#GoToIndex {
+    position: fixed;
+    bottom: 10%;
+    right: 0%;
+    padding: 10px;
+    width: 10%;
+    background-color: #9fb28d;
+    border: 2px solid #647058;
+}
+
+#indexLink:link {
+    color: black;
+    text-decoration: none;
+}
+
+#indexLink:hover {
+    color: black;
+    text-decoration: none;
+}
+
+#indexLink:visited {
+    color: black;
+    text-decoration: none;
+}
