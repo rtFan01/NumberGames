@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="AdventureStyle.css">
-    <title>Guessing Game!</title>
-</head>
-<body>
-    <h1>Guess a number!</h1>
-    <form id="numberForm">
-        <input type="number" id="numberGuessed">
-    </form>
-    <button id="restart">Restart</button>
-    <br>
-    <br>
-    <div id="lowerOrHigher"></div>
-    <br>
-    <div id="triesLeft">You have 4 tries left!</div>
-    <div class="GoToIndex">Go to main <a href="https://rtfan01.github.io/OverallPage/index.html" class="indexLink">index</a></div>
-    <div class="GoToIndex" id="height">Go to main <a href="index.html" class="indexLink">page</a></div>
-    <div class="GoToIndex" id="height2">Go to <a href="AdventureStyle.css" class="indexLink">CSS</a></div>
-    <script>
-        var outputLowOrHigh = document.getElementById("lowerOrHigher");
-        var outputTriesLeft = document.getElementById("triesLeft");
-        var input = document.getElementById("numberGuessed");
-        var form = document.getElementById("numberForm")
-        var button = document.getElementById("restart")
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="AdventureStyle.css">
+        <title>Guessing Game!</title>
+    </head>
+    <body>
+        <h1>Guess a number!</h1>
+        <form id="numberForm">
+            <input type="number" id="numberGuessed">
+        </form>
+        <button id="restart">Restart</button>
+        <br>
+        <br>
+        <div id="lowerOrHigher"></div>
+        <br>
+        <div id="triesLeft">You have 3 tries left!</div>
+        <div class="GoToIndex">Go to main <a href="https://rtfan01.github.io/OverallPage/index.html" class="indexLink">index</a></div>
+        <div class="GoToIndex" id="height">Go to main <a href="index.html" class="indexLink">page</a></div>
+        <div class="GoToIndex" id="height2">Go to <a href="AdventureStyle.css" class="indexLink">CSS</a></div>
+        <script>
+            var outputLowOrHigh = document.getElementById("lowerOrHigher");
+            var outputTriesLeft = document.getElementById("triesLeft");
+            var input = document.getElementById("numberGuessed");
+            var form = document.getElementById("numberForm");
+            var button = document.getElementById("restart");
 
-        var number = Math.round(Math.random() * 10) + 1;
-        var tries = 3;
-        var gameIsFinished = false;
+            var number = Math.round(Math.random() * 10) + 1;
+            var tries = 2;
+            var gameIsFinished = false;
 
-        var isNumberCorrect = function (numberGuessed) {
-            console.log(number);
-            if (gameIsFinished == false) {
-                if (numberGuessed == number) {
-                    outputLowOrHigh.innerHTML = "You won!";
-                    gameIsFinished = true;
-                } else if (tries <= 0) {
-                    tries--;
-                    outputLowOrHigh.innerHTML = "You ran out of tries! :(";
-                    gameIsFinished = true;
-                } else if (numberGuessed > number) {
-                    outputLowOrHigh.innerHTML = "Try guessing lower!";
-                    tries--;
-                } else if (numberGuessed < number) {
-                    outputLowOrHigh.innerHTML = "Try guessing higher!";
-                    tries--;
+            var isNumberCorrect = function (numberGuessed) {
+                console.log(number);
+                if (gameIsFinished == false) {
+                    if (numberGuessed == number) {
+                        outputLowOrHigh.innerHTML = "You won!";
+                        gameIsFinished = true;
+                    } else if (tries <= 0) {
+                        tries--;
+                        outputLowOrHigh.innerHTML = "You ran out of tries! :(";
+                        gameIsFinished = true;
+                    } else if (numberGuessed > number) {
+                        outputLowOrHigh.innerHTML = "Try guessing lower!";
+                        tries--;
+                    } else if (numberGuessed < number) {
+                        outputLowOrHigh.innerHTML = "Try guessing higher!";
+                        tries--;
+                    }
+                    var numOfTries = tries + 1;
+                    outputTriesLeft.innerHTML = "You have " + numOfTries + " tries left!";
                 }
-                var numOfTries = tries + 1;
+            };
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+                console.log("hello");
+                isNumberCorrect(input.value);
+            });
+
+            button.addEventListener("click", function () {
+                var numOfTries = 3;
+                tries = 2;
+                gameIsFinished = false;
                 outputTriesLeft.innerHTML = "You have " + numOfTries + " tries left!";
-            }
-        };
-
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
-            console.log("hello");
-            isNumberCorrect(input.value);
-        });
-
-        button.addEventListener("click", function () {
-            var numOfTries = 4;
-            tries = 3;
-            gameIsFinished = false;
-            outputTriesLeft.innerHTML = "You have " + numOfTries + " tries left!";
-            outputLowOrHigh.innerHTML = "You have restarted!";
-            number = Math.round(Math.random() * 10) + 1
-        });
-    </script>
-</body>
+                outputLowOrHigh.innerHTML = "You have restarted!";
+                number = Math.round(Math.random() * 10) + 1
+            });
+        </script>
+    </body>
 </html>
