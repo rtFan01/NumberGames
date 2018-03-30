@@ -104,6 +104,14 @@ button:hover {
     border: 2px solid #647058;
 }
 
+#height {
+    bottom: 17%;
+}
+
+#height2 {
+    bottom: 3%;
+}
+
 .indexLink:link {
     color: black;
     text-decoration: none;
